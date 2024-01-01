@@ -5,15 +5,15 @@ from .models import FeedbackItem
 
 class FeedbackItemForm(forms.ModelForm):
     feedback_item_choice_types = [
-        ("communicates_well", "Communicates well"),
-        ("attentive", "Attentive"),
-        ("results_oriented", "Results oriented"),
-        ("non_linear_thinking", "Non-linear thinking"),
-        ("generates_ideas", "Generates ideas"),
-        ("strategic_thinking", "Strategic thinking"),
-        ("adapts_to_change", "Adapts to change"),
-        ("assertive", "Assertive"),
-        ("other", "Other"),
+        ("Communicates well", "Communicates well"),
+        ("Attentive", "Attentive"),
+        ("Results oriented", "Results oriented"),
+        ("Non-linear thinking", "Non-linear thinking"),
+        ("Generates ideas", "Generates ideas"),
+        ("Strategic thinking", "Strategic thinking"),
+        ("Adapts to change", "Adapts to change"),
+        ("Assertive", "Assertive"),
+        ("Other", "Other"),
     ]
     feedback_item_choice = forms.CharField(
         widget=forms.Select(choices=feedback_item_choice_types)

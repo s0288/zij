@@ -9,4 +9,20 @@
     {% if messages %}
         {% for message in messages %}<div class="alert alert-success">{{ message }}</div>{% endfor %}
     {% endif %}
+    {% if feedback_items %}
+        {% for feedback_item in feedback_items %}
+            <div class="p-2 me-auto">
+                <ul class="list-group">
+                    <ul class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw" name="feedback_item_id">Feedback-ID: {{ feedback_item.id }}</div>
+                            <div class="fw-bold" name="feedback_item_choice">Feedback dimension: {{ feedback_item.feedback_item_choice }}</div>
+                            <div class="fw" name="feedback_item_score">Score: {{ feedback_item.score }}</div>
+                            <div class="fw" name="feedback_item_description">Description: {{ feedback_item.description }}</div>
+                        </div>
+                    </ul>
+                </ul>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock body_block %}

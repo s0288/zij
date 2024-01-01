@@ -1,10 +1,14 @@
 from django.shortcuts import redirect, render
 
 from .forms import FeedbackItemForm
+from .models import FeedbackItem
 
 
 def index(request):
-    return render(request, "feedback/index.html")
+    feedback_item_list = FeedbackItem.objects.order_by("id")
+    return render(
+        request, "feedback/index.html", {"feedback_items": feedback_item_list}
+    )
 
 
 def add_feedback_item(request):
