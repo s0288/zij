@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
 from .forms import FeedbackItemForm
@@ -11,6 +12,7 @@ def index(request):
     )
 
 
+@login_required
 def add_feedback_item(request):
     form = FeedbackItemForm(request.POST or None)
     if form.is_valid():

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Log in</h1>
+            <form method="post" action="{% url 'user_login' %}">
+                {% csrf_token %}
+                <label for="username"></label>
+                <input type="text" name="username" placeholder="Username">
+                <label for="password"></label>
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" name="" value="Log in">
+            </form>
+            <div>
+                Not registered yet? <a href="{% url 'register' %}">Register</a>
+            </div>
+        </div>
+    </div>
+{% endblock body_block %}
