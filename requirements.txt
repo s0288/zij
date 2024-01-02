@@ -1,0 +1,7 @@
+django
+psycopg2-binary
+pytz
+python-dotenv
+argon2
+argon2-cffi
+gunicorn
