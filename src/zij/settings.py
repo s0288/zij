@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "feedback",
+    "zij",
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,5 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "user_login"
+AUTH_USER_MODEL = "zij.CustomUser"
+AUTHENTICATION_BACKENDS = ["zij.backends.EmailBackend"]

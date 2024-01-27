@@ -36,9 +36,9 @@ def register(request):
 
 def user_login(request):
     if request.method == "POST":
-        username = request.POST.get("username")
+        email = request.POST.get("email")
         password = request.POST.get("password")
-        user = authenticate(username=username, password=password)
+        user = authenticate(email=email, password=password)
         if user:
             if user.is_active:
                 login(request, user)
@@ -48,7 +48,7 @@ def user_login(request):
                 return redirect("index")
         else:
             print("Someone tried to login and failed.")
-            print("They used username: {} and password: {}".format(username, password))
+            print("They used email: {}".format(email))
             messages.info(request, "Invalid login details supplied.")
             return redirect("index")
     else:
