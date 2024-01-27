@@ -31,8 +31,8 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = strtobool(os.getenv("DJANGO_DEBUG", "False"))
 
-ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "zij-gbht8.ondigitalocean.app"]
-CSRF_TRUSTED_ORIGINS = ["https://zij-gbht8.ondigitalocean.app"]
+ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "zij-gbht8.ondigitalocean.app", "zij.cx"]
+CSRF_TRUSTED_ORIGINS = ["https://zij-gbht8.ondigitalocean.app", "https://zij.cx"]
 
 # Application definition
 
