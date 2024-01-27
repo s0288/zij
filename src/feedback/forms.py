@@ -1,9 +1,14 @@
 from django import forms
 
+from zij.models import CustomUser
+
 from .models import FeedbackItem
 
 
 class FeedbackItemForm(forms.ModelForm):
+    feedback_recipient = forms.ModelChoiceField(
+        queryset=CustomUser.objects.all(), empty_label="Select a user"
+    )
     feedback_item_choice_types = [
         ("Communicates well", "Communicates well"),
         ("Attentive", "Attentive"),
@@ -21,7 +26,13 @@ class FeedbackItemForm(forms.ModelForm):
 
     class Meta:
         model = FeedbackItem
-        fields = ("id", "feedback_item_choice", "score", "description")
+        fields = (
+            "id",
+            "feedback_recipient",
+            "feedback_item_choice",
+            "score",
+            "description",
+        )
         widgets = {
             "description": forms.Textarea(attrs={"cols": 25, "rows": 3}),
         }
