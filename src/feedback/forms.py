@@ -7,17 +7,20 @@ from .models import FeedbackItem
 
 class FeedbackItemForm(forms.ModelForm):
     feedback_recipient = forms.ModelChoiceField(
-        queryset=CustomUser.objects.all(), empty_label="Select a user"
+        queryset=CustomUser.objects.exclude(is_superuser=True),
+        empty_label="Select a user",
     )
     feedback_item_choice_types = [
-        ("Communicates well", "Communicates well"),
-        ("Attentive", "Attentive"),
-        ("Results oriented", "Results oriented"),
-        ("Non-linear thinking", "Non-linear thinking"),
-        ("Generates ideas", "Generates ideas"),
-        ("Strategic thinking", "Strategic thinking"),
         ("Adapts to change", "Adapts to change"),
+        ("Analytical competence", "Analytical competence"),
         ("Assertive", "Assertive"),
+        ("Attentive", "Attentive"),
+        ("Communicates well", "Communicates well"),
+        ("Generates ideas", "Generates ideas"),
+        ("Non-linear thinking", "Non-linear thinking"),
+        ("Results oriented", "Results oriented"),
+        ("Software design patterns", "Software design patterns"),
+        ("Strategic thinking", "Strategic thinking"),
         ("Other", "Other"),
     ]
     feedback_item_choice = forms.CharField(
